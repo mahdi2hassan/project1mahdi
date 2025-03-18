@@ -6,6 +6,105 @@
   <title>جامعة بني سويف</title>
 </head>
 <body>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f1f1f1, #fbfdff);
+      color: rgb(240, 5, 5);
+      
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+    }
+    button {
+      padding: 10px 20px;
+      background: #ff6f61;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ff3b2f;
+    }
+    .welcome-page, .subtopic-page {
+      display: none;
+    }
+    .welcome-page h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .welcome-page ul {
+      list-style: none;
+      padding: 0;
+    }
+    .welcome-page ul li {
+      margin: 15px 0;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .welcome-page ul li:hover {
+      color: #ff6f61;
+    }
+    .subtopic-page h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .subtopic-page input {
+      width: 80%;
+      margin-bottom: 10px;
+    }
+    .subtopic-page button {
+      margin-top: 10px;
+    }
+    .subtopic-list {
+      list-style: none;
+      padding: 0;
+    }
+    .subtopic-list li {
+      margin: 10px 0;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .subtopic-list li:hover {
+      color: #ff6f61;
+    }
+    .upload-section, .content-section {
+      display: none;
+      margin-top: 20px;
+    }
+    .upload-section input[type="file"] {
+      margin-bottom: 10px;
+    }
+    .content-section a {
+      color: #ff6f61;
+      text-decoration: none;
+    }
+    .content-section a:hover {
+      text-decoration: underline;
+    }
+  </style>
   <!-- Landing Page -->
   <div class="container" id="landing-page">
     <h1>تسجيل الدخول</h1>
