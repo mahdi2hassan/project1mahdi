@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جامعة بني سويف</title>
+</head>
+<body>
+  <!-- Landing Page -->
+  <div class="container" id="landing-page">
+    <h1>تسجيل الدخول</h1>
+    <input type="text" id="username" placeholder="اسم المستخدم">
+    <input type="password" id="password" placeholder="كلمة المرور">
+    <button onclick="login()">دخول</button>
+  </div>
+
+  <!-- Welcome Page -->
+  <div class="container welcome-page" id="welcome-page">
+    <h1>جامعة بني سويف</h1>
+    <div id="admin-controls">
+      <input type="text" id="new-section-input" placeholder="اضف قسم جديد">
+      <button onclick="addNewSection()">اضف قسم</button>
+    </div>
+    <ul id="sections-list"></ul>
+  </div>
+
+      <title>مرحباً !
+
+" في بلس 360 اتمني تحققك هدفك في المزاكرة انطلق يابطل بلس كل محاضراتك جاهزة
+هذا التطبيق من اجل تهيئة الطالب لكافة المجالات التعليمية تصميم مستر مهدي حسن🎉🌺 "</title>
+  
+  <!-- Subtopic Page -->
+  <div class="container subtopic-page" id="subtopic-page">
+    <h2 id="subtopic-title"></h2>
+    <div id="subtopic-controls">
+      <input type="text" id="subtopic-input" placeholder="اضف عنوان فرعي">
+      <button onclick="addSubtopic()">اضف</button>
+    </div>
+    <ul class="subtopic-list" id="subtopic-list"></ul>
+    <button onclick="goBack()">رجوع</button>
+
+    <!-- Upload Section (Admin Only) -->
+    <div class="upload-section" id="upload-section">
+      <h3 id="upload-headline"></h3>
+      <input type="file" id="file-upload" accept=".pdf,.jpg,.png,.doc,.docx">
+      <button onclick="uploadFile()">رفع الملف</button>
+    </div>
+
+    <!-- Content Section (Regular Users) -->
+    <div class="content-section" id="content-section">
+      <h3 id="content-headline"></h3>
+      <div id="file-links"></div>
+    </div>
+  </div>
+
+  <script>
+    let isAdmin = false; // Tracks if the user is an admin
+    const sections = {}; // Stores sections and their subtopics
+    let currentSection = ""; // Tracks the currently selected section
+
+    // Login function
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Admin credentials
+      if (username === "plus" && password === "plus360") {
+        isAdmin = true;
+        document.getElementById('landing-page').style.display = 'none';
+        document.getElementById('welcome-page').style.display = 'block';
+        document.getElementById('admin-controls').style.display = 'block';
+      }
+      // Regular user credentials
+      else if (username === "user" && password === "user123") {
+        isAdmin = false;
+        document.getElementById('landing-page').style.display = 'none';
+        document.getElementById('welcome-page').style.display = 'block';
+        document.getElementById('admin-controls').style.display = 'none';
+      } else {
+        alert("اسم المستخدم أو كلمة المرور غير صحيحة");
+      }
+    }
+
+    // Add a new section
+    function addNewSection() {
+      const sectionName = document.getElementById('new-section-input').value;
+      if (sectionName.trim() !== "") {
+        sections[sectionName] = []; // Initialize an empty array for subtopics
+        const sectionsList = document.getElementById('sections-list');
+        const li = document.createElement('li');
+        li.innerText = sectionName;
+        li.onclick = () => showSubtopicPage(sectionName);
+        sectionsList.appendChild(li);
+        document.getElementById('new-section-input').value = ''; // Clear input
+      }
+    }
+
+    // Show subtopic page for a section
+    function showSubtopicPage(sectionName) {
+      currentSection = sectionName;
+      document.getElementById('welcome-page').style.display = 'none';
+      document.getElementById('subtopic-page').style.display = 'block';
+      document.getElementById('subtopic-title').innerText = sectionName;
+
+      // Show admin controls only if the user is an admin
+      document.getElementById('subtopic-controls').style.display = isAdmin ? 'block' : 'none';
+
+      // Display existing subtopics
+      const subtopicList = document.getElementById('subtopic-list');
+      subtopicList.innerHTML = ''; // Clear previous subtopics
+      if (sections[sectionName]) {
+        sections[sectionName].forEach((subtopic) => {
+          const li = document.createElement('li');
+          li.innerText = subtopic;
+          li.onclick = () => showContent(subtopic);
+          subtopicList.appendChild(li);
+        });
+      }
+    }
+
+    // Add subtopic to a section
+    function addSubtopic() {
+      const subtopicInput = document.getElementById('subtopic-input').value;
+      if (subtopicInput.trim() !== "") {
+        sections[currentSection].push(subtopicInput); // Add subtopic to the current section
+        const subtopicList = document.getElementById('subtopic-list');
+        const li = document.createElement('li');
+        li.innerText = subtopicInput;
+        li.onclick = () => showContent(subtopicInput);
+        subtopicList.appendChild(li);
+        document.getElementById('subtopic-input').value = ''; // Clear input
+      }
+    }
+
+    // Show content for a subtopic
+    function showContent(subtopic) {
+      if (isAdmin) {
+        // Admin can upload files
+        document.getElementById('upload-headline').innerText = subtopic;
+        document.getElementById('upload-section').style.display = 'block';
+        document.getElementById('content-section').style.display = 'none';
+      } else {
+        // Regular users can view/download files
+        document.getElementById('content-headline').innerText = subtopic;
+        document.getElementById('content-section').style.display = 'block';
+        document.getElementById('upload-section').style.display = 'none';
+
+        // Display file links (if any)
+        const fileLinks = document.getElementById('file-links');
+        fileLinks.innerHTML = ''; // Clear previous links
+        if (uploadedFiles[subtopic]) {
+          uploadedFiles[subtopic].forEach((file) => {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(file);
+            link.download = file.name;
+            link.innerText = `تحميل ${file.name}`;
+            link.style.display = 'block';
+            fileLinks.appendChild(link);
+          });
+        } else {
+          fileLinks.innerText = 'لا توجد ملفات متاحة';
+        }
+      }
+    }
+
+    // Upload file (Admin Only)
+    const uploadedFiles = {}; // Stores uploaded files for each subtopic
+    function uploadFile() {
+      const fileInput = document.getElementById('file-upload');
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const subtopic = document.getElementById('upload-headline').innerText;
+
+        // Store the file
+        if (!uploadedFiles[subtopic]) {
+          uploadedFiles[subtopic] = [];
+        }
+        uploadedFiles[subtopic].push(file);
+
+        alert(`تم رفع الملف: ${file.name}`);
+        fileInput.value = ''; // Clear file input
+      } else {
+        alert("الرجاء اختيار ملف لرفعه");
+      }
+    }
+
+    // Go back to welcome page
+    function goBack() {
+      document.getElementById('subtopic-page').style.display = 'none';
+      document.getElementById('welcome-page').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
