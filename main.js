@@ -22,8 +22,8 @@ function showPreview(name, design, color) {
   selectedImage.src = design.parentElement.querySelector('img').src;
   textContainer.innerHTML = `
     <p class="tek" id="card-text" style="color: ${color}">
-      إلى ${name}<br>
-      تقبل الله طاعتكم وكل عام وأنتم بخير و رمـضـان كريم
+       ${name}<br>
+      
     </p>
   `;
   previewCard.hidden = false;
@@ -86,3 +86,4 @@ function downloadCard() {
     document.body.removeChild(cloneContainer);
   });
 }
+
