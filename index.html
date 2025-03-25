@@ -62,6 +62,125 @@
   </header>
     </p>
   </footer>
+<div class="decorative-border"></div>
+
+    <form class="custom-form" id="cardForm">
+      <div class="uk-margin">
+        <input 
+          class="form-input" 
+          type="text" 
+          placeholder="أدخل اسمك هنا"
+          style="color: #222524;"
+          id="userName"
+          required>
+      </div>
+      
+      <div class="image-options">
+    
+        <label class="image-option">
+          <input type="radio" name="card-design" value="1" hidden required>
+          <img src="https://mediaaws.almasryalyoum.com/news/large/2025/03/10/2627273_0.jpg" alt="تصميم 1">
+        </label>
+        <label class="image-option">
+          <input type="radio" name="card-design" value="1" hidden required>
+          <img src="https://static.sayidaty.net/styles/900_scale/public/2023-04/241673.jpg.webp" alt="تصميم 1">
+        </label>
+        <label class="image-option">
+          <input type="radio" name="card-design" value="1" hidden required>
+          <img src="https://static.sayidaty.net/styles/900_scale/public/2023-04/241669.jpg.webp" alt="تصميم 1">
+        </label>
+        <label class="image-option">
+          <input type="radio" name="card-design" value="1" hidden required>
+          <img src="https://static.sayidaty.net/styles/900_scale/public/2023-04/241671.jpg.webp" alt="تصميم 1">
+        </label>
+ </label>
+      </div>
+<div class="color-picker">
+  <h3 style="color: #F4F6FF; font-family: monospace;margin-bottom: 20px;" class="h31">اختر لون النص : </h3>
+  <div class="color-options">
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#000000" hidden >
+      <span class="color-box" style="background: #000"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#FFFFFF" hidden>
+      <span class="color-box" style="background: #FFF"></span>
+    </label>
+    <label class="color-option" aria-required="true">
+      <input type="radio" name="text-color" value="#FFD700" hidden>
+      <span class="color-box" style="background: #FFD700" ></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#C0C0C0" hidden>
+      <span class="color-box" style="background: #C0C0C0"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#FF4500" hidden>
+      <span class="color-box" style="background: #FF4500"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#2C3930" hidden>
+      <span class="color-box" style="background: #2C3930" ></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#C14600" hidden>
+      <span class="color-box" style="background: #C14600"></span>
+    </label>
+    <label class="color-option" >
+      <input type="radio" name="text-color" value="#000957" hidden required selected>
+      <span class="color-box" style="background: #000957"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#00FF9C" hidden>
+      <span class="color-box" style="background: #00FF9C"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#7C00FE" hidden>
+      <span class="color-box" style="background: #7C00FE"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#FF204E" hidden>
+      <span class="color-box" style="background: #FF204E"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#FFEDFA" hidden>
+      <span class="color-box" style="background: #FFEDFA"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#800080" hidden>
+      <span class="color-box" style="background: #800080"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#16C47F" hidden>
+      <span class="color-box" style="background: #16C47F"></span>
+    </label>
+    <label class="color-option">
+      <input type="radio" name="text-color" value="#F4F6FF" hidden>
+      <span class="color-box" style="background: #F4F6FF"></span>
+    </label>
+  </div>
+</div>
+
+      <div class="uk-margin">
+        <button type="submit" class="submit-btn">إنشاء البطاقة</button>
+      </div>
+    </form>
+
+    <div id="card-content">
+      <div id="preview-card" class="preview-card" hidden>
+        <div class="card-wrapper">
+          <img id="selected-image" src="" alt="البطاقة" class="card-image">
+          <div id="text-container" class="text-container"></div>
+        </div>
+        <div class="main-control">
+          <div class="controls">
+            <button onclick="downloadCard()" class="download-btn">تنزيل البطاقة</button>
+            <button onclick="resetForm()" class="submit-btn">انشاء بطاقة جديدة</button>
+          </div>
+        
+      </div>
+  
+    </div>
   <style>
     .download-style {
       border-radius: 20px !important;
@@ -105,6 +224,8 @@
   <script src="main.js"></script>
 </body>
 </html>
+
+
 
 
 
