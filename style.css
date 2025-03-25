@@ -7,9 +7,10 @@
 
 body {
   font-family: 'Tajawal', sans-serif;
-  background:
- <img
+  background: <img
         src="./50.png"
+        alt="My"
+        class="icon"
         ;
   background-size: contain;
   color: #fff;
@@ -19,7 +20,7 @@ body {
   background-attachment: fixed;
   background-repeat: repeat-x;
   width: 100%;
-  background-color: 	#E0FFFF;
+  background-color: 	‎#ffffff;
 }
 .h3{
   color: #fffefe;
@@ -522,6 +523,7 @@ color: whitesmoke;
 @media (min-width: 992px) { }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {  }
+
 
 
 
