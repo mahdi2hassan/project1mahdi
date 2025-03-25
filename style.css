@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=amiri-bold:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alkalami&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Reem+Kufi+Fun:wght@400..700&display=swap');
 .input h3{
@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Tajawal', sans-serif;
-  background:url(https://res.cloudinary.com/dwpm10yrh/image/upload/v1740234870/75288_1_mo3ll5.jpg);
+  background:url(https://drive.google.com/file/d/1uoNhIvrgUO3w77MJlyfDfhzfKKHIVNFR/view?usp=drivesdk);
   background-size: contain;
   color: #fff;
   line-height: 1.6;
@@ -519,3 +519,4 @@ color: whitesmoke;
 @media (min-width: 992px) { }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {  }
+
