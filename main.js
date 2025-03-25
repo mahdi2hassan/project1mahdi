@@ -78,7 +78,7 @@ function downloadCard() {
     }
   }).then(canvas => {
     const link = document.createElement('a');
-    link.download = 'ramadan-card-' + Date.now() + '.png';
+    link.download = 'Mahdi Hassan-' + Date.now() + '.png';
     link.href = canvas.toDataURL('image/png', 1.0);
     link.click();
     
