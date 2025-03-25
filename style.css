@@ -7,7 +7,10 @@
 
 body {
   font-family: 'Tajawal', sans-serif;
-  background:url(https://drive.google.com/file/d/1uoNhIvrgUO3w77MJlyfDfhzfKKHIVNFR/view?usp=drivesdk);
+  background:
+ <img
+        src="./50.png"
+        ;
   background-size: contain;
   color: #fff;
   line-height: 1.6;
@@ -16,7 +19,7 @@ body {
   background-attachment: fixed;
   background-repeat: repeat-x;
   width: 100%;
-  background-color: #033a34;
+  background-color: 	#E0FFFF;
 }
 .h3{
   color: #fffefe;
@@ -519,4 +522,6 @@ color: whitesmoke;
 @media (min-width: 992px) { }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {  }
+
+
 
