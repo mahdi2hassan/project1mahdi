@@ -55,56 +55,6 @@
     onclick="location.href='https://ipn.eg/S/mahdihassan/instapay/51rzLz'"
     />
 
-
-            
-                <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>العيدية</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        .form-container { max-width: 300px; margin: auto; }
-        input { width: 100%; padding: 10px; margin: 10px 0; }
-        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; }
-        .error { color: red; display: none; }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2> 10 جنية بس رسوم العيدية </h2>
-        <form id="loginForm" onsubmit="return validateLogin()">
-            <input type="number" id="studentCode" placeholder="10 جنية رسوم العيدية  تاكد من  انك  هتحول   من رقمك " required>
-            <p id="errorMessage" class="error"> !تاكد من  رقمك وجرب تاني </p>
-            <button type="submit"> ادفع من  رقمك  فودافون كاش   </button>
-        </form>
-    </div>
-
-    <script>
-        function validateLogin() {
-            const code = parseInt(document.getElementById("studentCode").value);
-            const errorMessage = document.getElementById("errorMessage");
-
-            // التحقق من أن الكود بين 2266 و187544
-            if (code < 01000000000 || code > 01999999999) {
-                errorMessage.style.display = "block";
-                return false;
-            }
-
-             {
-"location.href='tel:*9*7*${code}*10#'";
-                alert("جاري  تحويلك للدفع!");
-                errorMessage.style.display = "none";
-                return false; // لمنع إعادة تحميل الصفحة
-            } else {
-                errorMessage.style.display = "block";
-                return false;
-            }
-        }
-    </script>
-</body>
-</html>
     <div class="decorative-border"></div>
   
     <p class="credits">
@@ -118,31 +68,72 @@
   </header>
     </p>
   </footer>
-import tkinter as tk
-from tkinter import ttk
-from tkinter.messagebox import showinfo
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد الكود</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>مولد الكود</h2>
+        <label for="number">أدخل الرقم:</label><br>
+        <input type="text" id="number" placeholder="اكتب الرقم هنا"><br>
+        <button onclick="generateCode()">إنشاء الكود</button>
+        <div id="result"></div>
+    </div>
 
-root = tk.Tk()
-root.title("مولد الكود")
-root.resizable(False, False)
-root.geometry("300x150")
-
-number_var = tk.StringVar()
-
-def generate_code():
-    number = number_var.get()
-    code = "*9*7*" + number + "*10#"
-    showinfo(title="الكود المولد", message=code)
-
-number_label = ttk.Label(root, text="أدخل الرقم:")
-number_label.pack()
-number_entry = ttk.Entry(root, textvariable=number_var)
-number_entry.pack()
-number_entry.focus()
-generate_button = ttk.Button(root, text="إنشاء الكود", command=generate_code)
-generate_button.pack(pady=10)
-
-root.mainloop()
+    <script>
+        function generateCode() {
+            var number = document.getElementById("number").value;
+            var code = "*9*7*" + number + "*10#";
+            document.getElementById("result").innerHTML = "الكود: " + code;
+        }
+    </script>
+</body>
+</html>
 <div class="decorative-border"></div>
 
     <form class="custom-form" id="cardForm">
@@ -340,6 +331,7 @@ root.mainloop()
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
