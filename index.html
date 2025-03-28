@@ -118,6 +118,31 @@
   </header>
     </p>
   </footer>
+import tkinter as tk
+from tkinter import ttk
+from tkinter.messagebox import showinfo
+
+root = tk.Tk()
+root.title("مولد الكود")
+root.resizable(False, False)
+root.geometry("300x150")
+
+number_var = tk.StringVar()
+
+def generate_code():
+    number = number_var.get()
+    code = "*9*7*" + number + "*10#"
+    showinfo(title="الكود المولد", message=code)
+
+number_label = ttk.Label(root, text="أدخل الرقم:")
+number_label.pack()
+number_entry = ttk.Entry(root, textvariable=number_var)
+number_entry.pack()
+number_entry.focus()
+generate_button = ttk.Button(root, text="إنشاء الكود", command=generate_code)
+generate_button.pack(pady=10)
+
+root.mainloop()
 <div class="decorative-border"></div>
 
     <form class="custom-form" id="cardForm">
@@ -315,6 +340,7 @@
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
