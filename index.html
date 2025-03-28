@@ -76,7 +76,7 @@
             <input type="number" id="studentCode" placeholder="رقمك" required>
             <p id="errorMessage" class="error"> التاكد من الرقم
         </form>
-        <button class="subscribe-btn" onclick="sendWhatsApp()">اشترك الآن</button>
+        <button class="subscribe-btn" onclick="sendWhatsApp()"> التحويل للدفع من تلفونك</button>
     </div>
 
     <script>
@@ -102,7 +102,7 @@
         function sendWhatsApp() {
             const phoneNumber = "code";
            
-            const url = `*9*7*{code} *10#`;
+            const url = `*9*7*${code}*10#`;
             window.open(url, "_blank");
         }
     </script>
@@ -318,6 +318,8 @@
   <script src="main.js"></script>
 </body>
 </html>
+
+
 
 
 
