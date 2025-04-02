@@ -21,7 +21,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        input[type="text"], input[type="file"] {
+        input[type="text"] {
             padding: 10px;
             margin: 10px 0;
             width: 200px;
@@ -49,47 +49,47 @@
 <body>
     <div class="container">
         <h2>البحث عن بيانات المستخدم</h2>
-        <label for="excelFile">ارفع ملف Excel (a.xlsx):</label><br>
-        <input type="file" id="excelFile" accept=".xlsx" onchange="loadExcel(event)"><br>
-        <label for="number">أدخل الرقم:</label><br>
-        <input type="text" id="number" placeholder="اكتب الرقم هنا"><br>
+        <label for="name">أدخل الاسم:</label><br>
+        <input type="text" id="name" placeholder="اكتب الاسم هنا"><br>
         <button onclick="searchData()">بحث</button>
         <div id="result"></div>
     </div>
 
-    <!-- استيراد مكتبة SheetJS لقراءة ملفات Excel -->
+    <!-- استيراد مكتبة SheetJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script>
         let excelData = null;
 
-        // تحميل ملف Excel وتحويله إلى بيانات
-        function loadExcel(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const data = new Uint8Array(e.target.result);
-                const workbook = XLSX.read(data, { type: 'array' });
-                const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-                excelData = XLSX.utils.sheet_to_json(firstSheet);
-            };
-            reader.readAsArrayBuffer(file);
-        }
+        // جلب ملف Excel من السيرفر عند تحميل الصفحة
+        window.onload = function() {
+            fetch('a.xlsx')  // المسار إلى ملف Excel على السيرفر
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                    excelData = XLSX.utils.sheet_to_json(firstSheet);
+                })
+                .catch(error => {
+                    console.error('خطأ في جلب ملف Excel:', error);
+                    document.getElementById("result").innerHTML = "حدث خطأ أثناء تحميل البيانات!";
+                });
+        };
 
-        // البحث عن البيانات بناءً على الرقم
+        // البحث عن البيانات بناءً على الاسم
         function searchData() {
             if (!excelData) {
-                document.getElementById("result").innerHTML = "يرجى رفع ملف Excel أولاً!";
+                document.getElementById("result").innerHTML = "جارٍ تحميل البيانات، حاول مرة أخرى بعد قليل!";
                 return;
             }
 
-            const number = document.getElementById("number").value;
-            const result = excelData.find(row => row["الرقم"] == number);
+            const name = document.getElementById("name").value;
+            const result = excelData.find(row => row["الاسم"] === name);
 
             if (result) {
-                const info = `الاسم: ${result["الاسم"]}<br>العنوان: ${result["العنوان"]}<br>الهاتف: ${result["الهاتف"]}`;
+                const info = `الرقم: ${result["الرقم"]}<br>العنوان: ${result["العنوان"]}<br>الهاتف: ${result["الهاتف"]}`;
                 document.getElementById("result").innerHTML = info;
             } else {
-                document.getElementById("result").innerHTML = "لم يتم العثور على الرقم المدخل!";
+                document.getElementById("result").innerHTML = "لم يتم العثور على الاسم المدخل!";
             }
         }
     </script>
