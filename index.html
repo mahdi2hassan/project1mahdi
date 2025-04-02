@@ -1,276 +1,97 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  <title>عيد فطر مبارك</title>
-  <link rel="shortcut icon" href="./nn.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit-rtl.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البحث عن بيانات المستخدم</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="file"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <img src="./nn.png" alt="عيد سعيد" class="logo">
-  </header>
-
-  <main class="main-card uk-container">
-    <h1 class="title">كل عام وأنتم بخير</h1>
-    
-    <div class="decorative-border"></div>
-
-    
-  <footer class="footer">
-    <div id="socials-container">
-      <img
-        src="./icons8-facebook-50.png"
-        alt="My facebook profile"
-        class="icon"
-        onclick="location.href='https://www.facebook.com/ma7di2hassan/'"
-      />
-      <img
-        src="./icons8-instagram-logo-94_optimized.png"
-        alt="My insta profile"
-        class="icon"
-        onclick="location.href='https://www.instagram.com/mahdi2hassan/'"
-      />
-      <img
-      src="./icons8-whatsapp-50_optimized.png"
-      alt="My whats App acc"
-      class="icon"
-      onclick="location.href='https://api.whatsapp.com/send?phone=201007586279&text'"
-    />
-          <img
-    src="./vod.png"
-    alt="VodafoneCache"
-    class="icon"
-    onclick="location.href='tel:*9*7*01007586279*250#'"
-    />
-        
- 
-    <img
-    src="./com.egyptianbanks.instapay.icon_.2022-12-14-21-37-26.png"
-    alt="InstaPay"
-    class="icon"
-    onclick="location.href='https://ipn.eg/S/mahdihassan/instapay/51rzLz'"
-    />
-
-    <div class="decorative-border"></div>
-  
-    <p class="credits">
-     
-       <span class="dev-name">The Dev:  Mahdi Hassan Abdel-Azim </span>
-      <img src="/12_optimized.png" 
-           alt="المطور" 
-           class="developer-logo">
-      <header class="header">
-    <img src="./nn.gif" alt="عيد سعيد" class="logo">
-  </header>
-    </p>
-  </footer>
-<div class="decorative-border"></div>
-
-    <form class="custom-form" id="cardForm">
-      <div class="uk-margin">
-        <input 
-          class="form-input" 
-          type="text" 
-          placeholder="أدخل اسمك هنا"
-          style="color: #222524;"
-          id="userName"
-          required>
-      </div>
-      
-      <div class="image-options">
-    
-        <label class="image-option">
-          <input type="radio" name="card-design" value="1" hidden required>
-          <img src="https://mediaaws.almasryalyoum.com/news/large/2025/03/10/2627273_0.jpg" alt="تصميم 1">
-        </label>
-        <label class="image-option">
-          <input type="radio" name="card-design" value="1" hidden required>
-          <img src="https://static.sayidaty.net/styles/900_scale/public/2023-04/241673.jpg.webp" alt="تصميم 1">
-        </label>
-        <label class="image-option">
-          <input type="radio" name="card-design" value="1" hidden required>
-          <img src="https://static.sayidaty.net/styles/900_scale/public/2023-04/241669.jpg.webp" alt="تصميم 1">
-        </label>
-        <label class="image-option">
-          <input type="radio" name="card-design" value="1" hidden required>
-          <img src="https://static.sayidaty.net/styles/900_scale/public/2023-04/241671.jpg.webp" alt="تصميم 1">
-        </label>
- </label>
-      </div>
-<div class="color-picker">
-  <h3 style="color: #033a34; font-family: monospace;margin-bottom: 20px;" class="h31">اللون : </h3>
-  <div class="color-options">
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#000000" hidden >
-      <span class="color-box" style="background: #000"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#FFFFFF" hidden>
-      <span class="color-box" style="background: #FFF"></span>
-    </label>
-    <label class="color-option" aria-required="true">
-      <input type="radio" name="text-color" value="#FFD700" hidden>
-      <span class="color-box" style="background: #FFD700" ></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#C0C0C0" hidden>
-      <span class="color-box" style="background: #C0C0C0"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#FF4500" hidden>
-      <span class="color-box" style="background: #FF4500"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#2C3930" hidden>
-      <span class="color-box" style="background: #2C3930" ></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#C14600" hidden>
-      <span class="color-box" style="background: #C14600"></span>
-    </label>
-    <label class="color-option" >
-      <input type="radio" name="text-color" value="#000957" hidden required selected>
-      <span class="color-box" style="background: #000957"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#00FF9C" hidden>
-      <span class="color-box" style="background: #00FF9C"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#7C00FE" hidden>
-      <span class="color-box" style="background: #7C00FE"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#FF204E" hidden>
-      <span class="color-box" style="background: #FF204E"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#FFEDFA" hidden>
-      <span class="color-box" style="background: #FFEDFA"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#800080" hidden>
-      <span class="color-box" style="background: #800080"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#16C47F" hidden>
-      <span class="color-box" style="background: #16C47F"></span>
-    </label>
-    <label class="color-option">
-      <input type="radio" name="text-color" value="#F4F6FF" hidden>
-      <span class="color-box" style="background: #F4F6FF"></span>
-    </label>
-  </div>
-</div>
-
-      <div class="uk-margin">
-        <button type="submit" class="submit-btn">إنشاء البطاقة</button>
-      </div>
-    </form>
-
-    <div id="card-content">
-      <div id="preview-card" class="preview-card" hidden>
-        <div class="card-wrapper">
-          <img id="selected-image" src="" alt="البطاقة" class="card-image">
-          <div id="text-container" class="text-container"></div>
-        </div>
-        <div class="main-control">
-          <div class="controls">
-            <button onclick="downloadCard()" class="download-btn">تنزيل البطاقة</button>
-            <button onclick="resetForm()" class="submit-btn">انشاء بطاقة جديدة</button>
-          </div>
-        
-      </div>
-  
+    <div class="container">
+        <h2>البحث عن بيانات المستخدم</h2>
+        <label for="excelFile">ارفع ملف Excel (a.xlsx):</label><br>
+        <input type="file" id="excelFile" accept=".xlsx" onchange="loadExcel(event)"><br>
+        <label for="number">أدخل الرقم:</label><br>
+        <input type="text" id="number" placeholder="اكتب الرقم هنا"><br>
+        <button onclick="searchData()">بحث</button>
+        <div id="result"></div>
     </div>
-  <footer class="footer">
-    <div id="socials-container">
-      <img
-        src="./icons8-facebook-50.png"
-        alt="My facebook profile"
-        class="icon"
-        onclick="location.href='https://www.facebook.com/ma7di2hassan/'"
-      />
-      <img
-        src="./icons8-instagram-logo-94_optimized.png"
-        alt="My insta profile"
-        class="icon"
-        onclick="location.href='https://www.instagram.com/mahdi2hassan/'"
-      />
-      <img
-      src="./icons8-whatsapp-50_optimized.png"
-      alt="My whats App acc"
-      class="icon"
-      onclick="location.href='https://api.whatsapp.com/send?phone=201007586279&text'"
-    />
-    
- 
-    <img
-    src="./com.egyptianbanks.instapay.icon_.2022-12-14-21-37-26.png"
-    alt="InstaPay"
-    class="icon"
-    onclick="location.href='https://ipn.eg/S/mahdihassan/instapay/51rzLz'"
-    />
-      <img
-    src="./vod.png"
-    alt="VodafoneCache"
-    class="icon"
-    onclick="location.href='tel:*9*7*01007586279*250#'"
-    />
-        
-  <style>
-    .download-style {
-      border-radius: 20px !important;
-      overflow: hidden !important;
-    }
-    
-    .text-bg {
-      background-color: rgba(0, 0, 0, 0.5) !important;
-      padding: 10px !important;
-      border-radius: 10px !important;
-    }
-    </style>
-    
+
+    <!-- استيراد مكتبة SheetJS لقراءة ملفات Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script>
-    function downloadCard() {
-      const previewElement = document.getElementById('card-content');
-      const originalClasses = previewElement.className;
-      
-      previewElement.classList.add('download-style');
-      document.getElementById('card-text').classList.add('text-bg');
-    
-      setTimeout(() => {
-        html2canvas(previewElement, {
-          useCORS: true,
-          scale: 2,
-          allowTaint: false,
-          logging: true,
-          backgroundColor: null
-        }).then(canvas => {
-          const link = document.createElement('a');
-          link.download = 'ramadan-card.png';
-          link.href = canvas.toDataURL('image/png', 1.0);
-          link.click();
-    
-          previewElement.className = originalClasses;
-          document.getElementById('card-text').classList.remove('text-bg');
-        });
-      }, 100);
-    }
+        let excelData = null;
+
+        // تحميل ملف Excel وتحويله إلى بيانات
+        function loadExcel(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+                const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                excelData = XLSX.utils.sheet_to_json(firstSheet);
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        // البحث عن البيانات بناءً على الرقم
+        function searchData() {
+            if (!excelData) {
+                document.getElementById("result").innerHTML = "يرجى رفع ملف Excel أولاً!";
+                return;
+            }
+
+            const number = document.getElementById("number").value;
+            const result = excelData.find(row => row["الرقم"] == number);
+
+            if (result) {
+                const info = `الاسم: ${result["الاسم"]}<br>العنوان: ${result["العنوان"]}<br>الهاتف: ${result["الهاتف"]}`;
+                document.getElementById("result").innerHTML = info;
+            } else {
+                document.getElementById("result").innerHTML = "لم يتم العثور على الرقم المدخل!";
+            }
+        }
     </script>
-  <script src="main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
