@@ -49,8 +49,8 @@
 <body>
     <div class="container">
         <h2>البحث عن بيانات المستخدم</h2>
-        <label for="name">أدخل الاسم:</label><br>
-        <input type="name" id="name" placeholder="اكتب الاسم هنا"><br>
+        <label for="ID">أدخل الاسم:</label><br>
+        <input type="ID" id="ID" placeholder="اكتب الاسم هنا"><br>
         <button onclick="searchData()">بحث</button>
         <div id="result"></div>
     </div>
@@ -86,7 +86,7 @@
             const result = excelData.find(row => row["الاسم"] === name);
 
             if (result) {
-                const info = `الرقم: ${result["الرقم"]}<br>العنوان: ${result["العنوان"]}<br>الهاتف: ${result["الهاتف"]}`;
+                const info = `الرقم: ${result["الرقم"]}<br>العنوان: ${result["العنوان"]}<br>المركز: ${result["المركز"]}`;
                 document.getElementById("result").innerHTML = info;
             } else {
                 document.getElementById("result").innerHTML = "لم يتم العثور على الاسم المدخل!";
