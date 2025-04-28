@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم - أعياد</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Cairo', sans-serif; margin: 20px; }
+    form { max-width: 600px; margin: 0 auto; }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button { background: #2a5298; color: white; cursor: pointer; }
+    button:hover { background: #1e3c72; }
+    .occasion-list div { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>لوحة تحكم - إدارة المناسبات</h1>
+  <form id="occasion-form">
+    <input type="text" id="name" placeholder="اسم المناسبة" required>
+    <input type="text" id="date" placeholder="التاريخ (مثل: 2025-04-01)" required>
+    <textarea id="description" placeholder="الوصف" required></textarea>
+    <textarea id="greeting" placeholder="التهنئة" required></textarea>
+    <button type="submit">إضافة مناسبة</button>
+  </form>
+  <div id="occasion-list"></div>
+
+  <script>
+    // جلب المناسبات
+    function loadOccasions() {
+      fetch('http://localhost:5000/api/occasions')
+        .then(res => res.json())
+        .then(data => {
+          const list = document.getElementById('occasion-list');
+          list.innerHTML = '';
+          data.forEach(occasion => {
+            const div = document.createElement('div');
+            div.innerHTML = `
+              <h3>${occasion.name}</h3>
+              <p>${occasion.date} - ${occasion.greeting}</p>
+              <button onclick="editOccasion('${occasion._id}')">تعديل</button>
+              <button onclick="deleteOccasion('${occasion._id}')">حذف</button>
+            `;
+            list.appendChild(div);
+          });
+        });
+    }
+
+    // إضافة مناسبة
+    document.getElementById('occasion-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const occasion = {
+        name: document.getElementById('name').value,
+        date: document.getElementById('date').value,
+        description: document.getElementById('description').value,
+        greeting: document.getElementById('greeting').value,
+      };
+      fetch('http://localhost:5000/api/occasions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(occasion),
+      }).then(() => {
+        loadOccasions();
+        document.getElementById('occasion-form').reset();
+      });
+    });
+
+    // حذف مناسبة
+    function deleteOccasion(id) {
+      fetch(`http://localhost:5000/api/occasions/${id}`, { method: 'DELETE' })
+        .then(() => loadOccasions());
+    }
+
+    // تحميل المناسبات عند بدء الصفحة
+    loadOccasions();
+  </script>
+</body>
+</html>
